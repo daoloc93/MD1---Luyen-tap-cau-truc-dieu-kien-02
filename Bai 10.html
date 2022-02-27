@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Nhập vào số điện tiêu thụ hàng tháng (kWh):</h3>
+<input id="sodien" type="text">
+
+<br>
+<br>
+
+<button onclick="calculate()">Tính số tiền cần đóng</button>
+
+<h3 id="result"></h3>
+
+<script>
+
+    function calculate() {
+        let soDien = parseInt(document.getElementById("sodien").value);
+        let tienDien = 0;
+
+        if (soDien >= 0) {
+            if (soDien <= 50) {
+                tienDien = 1678 * soDien;
+            } else if (soDien <= 100) {
+                tienDien = 1678 * 50 + 1734 * (soDien - 50);
+            } else if (soDien <= 200) {
+                tienDien = 1678 * 50 + 1734 * 50 + 2014 * (soDien - 100);
+            } else if (soDien <= 300) {
+                tienDien = 1678 * 50 + 1734 * 50 + 2014 * 100 + 2536 * (soDien - 200);
+            } else if (soDien <= 400) {
+                tienDien = 1678 * 50 + 1734 * 50 + 2014 * 100 + 2536 * 300 + 2834 * (soDien - 300);
+            } else {
+                tienDien = 1678 * 50 + 1734 * 50 + 2014 * 100 + 2536 * 300 + 2834 * 400 + 2927 * (soDien - 400);
+            }
+        }
+
+        document.getElementById("result").innerHTML = "Tiền điện của bạn là " + tienDien + " đồng";
+    }
+
+</script>
+
+</body>
+</html>

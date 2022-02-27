@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>Nhập vào thu nhập tính thuế của bạn:</h3>
+<input id="thuNhap" type="text">
+<button onclick="calculate()">Tính thuế TNCN</button>
+<h3 id="result"></h3>
+<script>
+
+    function calculate() {
+        let thuNhap = parseInt(document.getElementById("thuNhap").value);
+        let thueTNCN = 0;
+        if (thuNhap >= 0) {
+            if (thuNhap <= 5000000) {
+                thueTNCN = 0.05 * thuNhap;
+            } else if (thuNhap <= 10000000) {
+                thueTNCN = 0.05 * 5000000 + 0.1 * (thuNhap - 5000000);
+            } else if (thuNhap <= 18000000) {
+                thueTNCN = 0.05 * 5000000 + 0.1 * 5000000 + 0.15 * (thuNhap - 10000000);
+            } else if (thuNhap <= 32000000) {
+                thueTNCN = 0.05 * 5000000 + 0.1 * 5000000 + 0.15 * 8000000 + 0.2 * (thuNhap - 18000000);
+            } else if (thuNhap <= 52000000) {
+                thueTNCN = 0.05 * 5000000 + 0.1 * 5000000 + 0.15 * 8000000 + 0.2 * 14000000 + 0.25 * (thuNhap - 32000000);
+            } else if (thuNhap <= 80000000) {
+                thueTNCN = 0.05 * 5000000 + 0.1 * 5000000 + 0.15 * 8000000 + 0.2 * 14000000 + 0.25 * 20000000 + 0.3 * (thuNhap - 52000000);
+            } else {
+                thueTNCN = 0.05 * 5000000 + 0.1 * 5000000 + 0.15 * 8000000 + 0.2 * 14000000 + 0.25 * 20000000 + 0.3 * 28000000 + 0.35 * (thuNhap - 80000000);
+            }
+        }
+        document.getElementById("result").innerHTML = "Thuế TNCN của bạn là " + thueTNCN;
+    }
+
+</script>
+
+</body>
+</html>

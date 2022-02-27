@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Chương trình tính lãi ngân hàng:</h3>
+Số tiền ban đầu: <input type="text" id="pV"><br><br>
+Số năm cho vay: <input type="text" id="n"><br><br>
+Lãi suất theo năm (%): <input type="text" id="i"><br><br>
+
+<button onclick="calculate()">Tính lãi</button>
+<h3 id="result"></h3>
+
+
+<script>
+
+    function calculate() {
+        let presentValue = parseFloat(document.getElementById("pV").value);
+        let year = parseFloat(document.getElementById("n").value);
+        let interestRate = (parseFloat(document.getElementById("i").value))/100;
+        let futureValue = presentValue * ((1 + interestRate)**year);
+
+        document.getElementById("result").innerHTML = "Giá trị tương lai ở năm thứ " + year + " là: " + futureValue;
+    }
+
+
+</script>
+
+</body>
+</html>

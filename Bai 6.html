@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h3>Nhập các tham số của phương trình ax + b = 0</h3>
+a = <input type="text" id="a">
+  <br><br>
+b = <input type="text" id="b">
+  <br><br>
+<button onclick="calculate()">Kết quả</button>
+<h3 id="result"></h3>
+
+  <script>
+
+      function calculate() {
+          let a = document.getElementById("a").value;
+          let b = document.getElementById("b").value;
+          let result = document.getElementById("result");
+
+          if (a==0 && b == 0) {
+              result.innerHTML = "Phương trình có vô số nghiệm";
+          } else if (a==0 && b!=0) {
+              result.innerHTML = "Phương trình vô nghiệm";
+          } else {
+              let x = -b/a;
+              result.innerHTML = "Phương trình có nghiệm duy nhất là " + x;
+          }
+      }
+
+  </script>
+
+</body>
+</html>
